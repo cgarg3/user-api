@@ -35,7 +35,11 @@ module.exports.connect = function () {
 module.exports.registerUser = function (userData) {
     return new Promise(function (resolve, reject) {
 
-        if (userData.password != userData.password2) {
+        if(userData.userName.length == 0)
+        {
+            reject("Please Enter User Name")
+        }
+        else if (userData.password != userData.password2) {
             reject("Passwords do not match");
         } else {
 
